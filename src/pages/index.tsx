@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
-import Appbar from './components/AppBar';
-import TimeFinder from './components/TimeFinder';
+import Appbar from '../components/AppBar';
+import TimeFinder from '../components/TimeFinder';
 
 export default function Home() {
   return (

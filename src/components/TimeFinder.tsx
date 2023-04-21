@@ -13,8 +13,20 @@ const TimeFinder = () => {
     const [minutesValue, setMinutesValue] = React.useState<number>(0);
     const [hoursValue, setHoursValue] = React.useState<number>(0);
     const [difference, setDifference] = React.useState<string>('before');
-    const [result, setResult] = React.useState<string | null>(null);
 
+    const result = React.useMemo(
+        () => difference === 'before' ? 
+            moment(timeValue)
+                .subtract(hoursValue, 'hours')
+                .subtract(minutesValue, 'minutes')
+                .format("hh:mm A") 
+            : moment(timeValue)
+                .add(hoursValue, 'hours')
+                .add(minutesValue, 'minutes')
+                .format("hh:mm A"), 
+        [difference, hoursValue, minutesValue, timeValue]
+    );
+    
     const theme = useTheme();
     const isNotSmall = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -23,22 +35,6 @@ const TimeFinder = () => {
         setMinutesValue(0);
         setHoursValue(0)
     }, [])
-
-    React.useEffect(() => {
-        if (difference === 'before') {
-            setResult(
-                moment(timeValue)
-                    .subtract(hoursValue, 'hours')
-                    .subtract(minutesValue, 'minutes')
-                    .format("hh:mm A"))
-        } else if (difference === 'after') {
-            setResult(
-                moment(timeValue)
-                .add(hoursValue, 'hours')
-                .add(minutesValue, 'minutes')
-                .format("hh:mm A"))
-        }
-    }, [difference, hoursValue, minutesValue, timeValue])
 
     return (
         <LocalizationProvider dateAdapter={AdapterMoment} adapterLocale="en-us">
