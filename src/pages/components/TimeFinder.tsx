@@ -1,10 +1,12 @@
 import * as React from 'react';
 import moment from 'moment';
 import type { Moment } from 'moment';
+import { AdapterMoment } from '@mui/x-date-pickers/AdapterMoment';
 import { useTheme } from '@mui/material/styles';
 import { Button, Card, CardActions, CardContent, CardHeader, InputAdornment, TextField, ToggleButton, ToggleButtonGroup, Typography, useMediaQuery } from '@mui/material';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import TimePicker from '@mui/lab/TimePicker';
+import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 
 const TimeFinder = () => {
     const [timeValue, setTimeValue] = React.useState<Moment>(moment());
@@ -39,17 +41,16 @@ const TimeFinder = () => {
     }, [difference, hoursValue, minutesValue, timeValue])
 
     return (
+        <LocalizationProvider dateAdapter={AdapterMoment}>
         <Card variant="outlined" sx={isNotSmall ? { maxWidth: '35%', mt: '10%', mx: 'auto' } : { maxWidth: '90%', mt: '10%', mx: 'auto' }} >
             <CardHeader 
                 avatar={<AccessTimeIcon />} 
                 title="Enter time, then hours, minutes, and difference to find the resulting time"
             />
             <CardContent>
-                <TimePicker
-                    label="Starting Time"
+                <StaticTimePicker
                     value={timeValue}
-                    onChange={(time: string) => setTimeValue(moment(time))}
-                    renderInput={(params: any) => <TextField fullWidth margin="dense" {...params} />}
+                    onChange={(time: any) => setTimeValue(moment(time))}
                 />
                 <TextField
                     type="number"
@@ -97,6 +98,7 @@ const TimeFinder = () => {
                 </CardActions>
             </CardContent>
         </Card>
+        </LocalizationProvider>
     );
 };
 
