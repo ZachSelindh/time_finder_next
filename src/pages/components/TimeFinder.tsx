@@ -41,7 +41,7 @@ const TimeFinder = () => {
     }, [difference, hoursValue, minutesValue, timeValue])
 
     return (
-        <LocalizationProvider dateAdapter={AdapterMoment}>
+        <LocalizationProvider dateAdapter={AdapterMoment} adapterLocale="en-us">
         <Card variant="outlined" sx={isNotSmall ? { maxWidth: '35%', mt: '10%', mx: 'auto' } : { maxWidth: '90%', mt: '10%', mx: 'auto' }} >
             <CardHeader 
                 avatar={<AccessTimeIcon />} 
