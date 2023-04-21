@@ -6,7 +6,7 @@ import { Button, Card, CardActions, CardContent, CardHeader, InputAdornment, Tex
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import TimePicker from '@mui/lab/TimePicker';
 
-export const TimeFinder = () => {
+const TimeFinder = () => {
     const [timeValue, setTimeValue] = React.useState<Moment>(moment());
     const [minutesValue, setMinutesValue] = React.useState<number>(0);
     const [hoursValue, setHoursValue] = React.useState<number>(0);
@@ -99,3 +99,5 @@ export const TimeFinder = () => {
         </Card>
     );
 };
+
+export default TimeFinder;

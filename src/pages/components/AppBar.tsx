@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-export function Appbar() {
+const TimeFinderAppBar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -17,3 +17,5 @@ export function Appbar() {
     </Box>
   );
 }
+
+export default TimeFinderAppBar;
