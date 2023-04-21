@@ -42,7 +42,7 @@ const TimeFinder = () => {
 
     return (
         <LocalizationProvider dateAdapter={AdapterMoment} adapterLocale="en-us">
-        <Card variant="outlined" sx={isNotSmall ? { maxWidth: '35%', mt: '10%', mx: 'auto' } : { maxWidth: '90%', mt: '10%', mx: 'auto' }} >
+        <Card variant="outlined" sx={isNotSmall ? { maxWidth: '35%', mt: '2%', mx: 'auto' } : { maxWidth: '90%', mt: '1%', mx: 'auto' }} >
             <CardHeader 
                 avatar={<AccessTimeIcon />} 
                 title="Enter time, then hours, minutes, and difference to find the resulting time"
