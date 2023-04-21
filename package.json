@@ -9,14 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/lab": "^5.0.0-alpha.127",
+    "@mui/material": "^5.12.1",
     "@types/node": "18.15.13",
     "@types/react": "18.0.37",
     "@types/react-dom": "18.0.11",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
+    "moment": "^2.29.4",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@mui/types": "^7.2.4"
   }
 }
